@@ -1,0 +1,41 @@
+<img name = "slider" height = "300" style= "max-width:100%;">
+
+<script>
+	var i = 0;
+	var images = [];
+	var time = 1000;
+	
+	images[0] = "images1.jpg";
+	images[1] = "images2.jpg";
+	images[2] = "images3.jpg";
+
+	
+	function imagesChange(){
+		document.slider.src = images[i];
+		
+		if(i < images.length - 1){
+			i++;
+		} else{
+			i = 0;
+		}
+		timeout = setTimeout("imagesChange()", time);
+	}
+	
+	//function startSlide(){
+	//	
+	//}
+	
+	function stopSlide(){
+		clearTimeout(timeout);
+	}
+	
+	window.onload = imagesChange;
+
+</script>
+
+<input type="button" value="Start Slide" onclick="imagesChange()">
+<input type="button" value="Stop Slide" onclick="stopSlide()">
+
+
+
+
